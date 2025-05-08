@@ -1,6 +1,6 @@
 class Solution {
     public boolean isValid(String s) {
-        Deque<Character> stackChar = new ArrayDeque<>();
+        Stack<Character> stackChar = new Stack<Character>();
 
         Map<Character, Character> bracketMap = new HashMap<>();
         bracketMap.put(')', '(');
@@ -13,7 +13,7 @@ class Solution {
                 stackChar.push(c);
             }
             else if (bracketMap.containsKey(c)) {
-                if (stackChar.isEmpty()) {
+                if (stackChar.empty()) {
                     return false;
                 }
                 Character peek = stackChar.pop();
@@ -25,7 +25,7 @@ class Solution {
             }
         }
 
-        if (!stackChar.isEmpty()){
+        if (!stackChar.empty()){
             return false;
         }
         return true;
