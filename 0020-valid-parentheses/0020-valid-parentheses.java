@@ -21,7 +21,9 @@ class Solution {
                 if (!peek.equals(expectedPeek)) {
                     return false;
                 }
-
+            }
+            else {
+                    return false;
             }
         }
 
