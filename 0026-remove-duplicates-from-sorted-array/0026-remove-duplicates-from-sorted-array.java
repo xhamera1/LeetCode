@@ -1,6 +1,6 @@
 class Solution {
     public int removeDuplicates(int[] nums) {
-        Set<Integer> intSet = new HashSet<>();
+        Set<Integer> intSet = new TreeSet<>();
         
         for (int num : nums) {
             intSet.add(num);
