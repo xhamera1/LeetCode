@@ -1,6 +1,6 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        Map<Integer, Integer> numberCount = new TreeMap<>();
+        Map<Integer, Integer> numberCount = new HashMap<>();
 
         int half = nums.length/2;
         
