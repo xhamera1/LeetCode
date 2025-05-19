@@ -3,18 +3,18 @@ class Solution {
         int len = nums.length;
         int[] answer = new int[len];
 
-        for (int i=0; i<len; i++) {
-            int product = 1;
-            for (int j=0; j<len; j++) {
-                if (i == j) continue;
-                if (nums[j] == 0) {
-                    product = 0;
-                    break;
-                }
-                product *= nums[j];
-            }
-            answer[i] = product;
+        // sufixy
+        answer[0] = 1;
+        for (int i=1; i<len; i++) {
+            answer[i] = answer[i-1]*nums[i-1];
         }
+
+        int prefix = 1;
+        for (int j=len-1; j>=0; j--) {
+            answer[j] *= prefix;
+            prefix  = prefix * nums[j];
+        }
+
 
         return answer;
 
