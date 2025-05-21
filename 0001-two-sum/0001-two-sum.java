@@ -1,21 +1,27 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        int[] indices = new int[2];
-        HashMap<Integer, Integer> indMap = new HashMap<>();
+        Map<Integer,Integer> numberToIndexMap = new HashMap<>();
+        int[] resultArray = new int[2];
 
         for (int i=0; i<nums.length; i++) {
-            int rest = target - nums[i];
-            if (indMap.containsKey(rest)) {
-                indices[0] = indMap.get(rest);
-                indices[1] = i;
-                return indices;
+            int number = nums[i];
+            int remaining = target - number;
+            if (numberToIndexMap.containsKey(remaining)) {
+                resultArray[0] = numberToIndexMap.get(remaining);
+                resultArray[1] = i;
+                return resultArray;
             }
-            indMap.put(nums[i], i);
-
+            numberToIndexMap.put(number, i);
         }
-        return null;
+        return resultArray;
+
+
     }
 }
+
+
+
+
 
 
 // O(n^2)
